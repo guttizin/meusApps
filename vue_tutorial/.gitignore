@@ -1,0 +1,9 @@
+# ignores all logs
+*.log
+# ignores all npm  (use npm install on folder)
+/node_modules
+#ignores all .env variables, for security reasons
+.env
+#ignores all logs folder and all log file
+**/logs
+.log
