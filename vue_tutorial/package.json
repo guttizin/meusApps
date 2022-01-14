@@ -1,0 +1,17 @@
+{
+  "name": "vue_tutorial",
+  "version": "1.0.0",
+  "description": "App de teste de criação de app usando vue e acessando com banco de dados postgreSQL",
+  "main": "main.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
