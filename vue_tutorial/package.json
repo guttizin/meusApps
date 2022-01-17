@@ -6,11 +6,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon express.js"
   },
   "author": "",
   "license": "ISC"
