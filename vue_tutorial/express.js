@@ -3,6 +3,7 @@ const express = require('express');
 const appExpress = express();
 
 const path = require('path');
+appExpress.use(express.static(path.join(__dirname, 'public')));
 
 // Import cors
 const cors = require('cors');
@@ -15,30 +16,31 @@ dotenv.config();
 var pg = require('pg');
 // var connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
 
-// Create the pool
-// const pool = new pg.Pool({
-//   connectionString: connectionString,
-//   ssl: false
-// });
-
-const pool = new pg.Pool();
-
 // Requesting connection to the database
 // var pgClient = new pg.Client(connectionString);
 // pgClient.connect();
 // var query = pgClient.query("SELECT version();");
 
-// Requesting connection by POOL
-// var query = pool.query('select version();')
-startTime = new Date();
-pool.query('SELECT * from bdi_20210910_02', (err, res) => {
+function getBD() {
+  // Create the pool
+  // const pool = new pg.Pool({
+  //   connectionString: connectionString,
+  //   ssl: false
+  // });
 
-  console.log("aeaeae",err, res)
-  endTime = new Date();
-  console.log(startTime, endTime);
-  console.log("Time: ", endTime - startTime);
-  pool.end()
-})
+  const pool = new pg.Pool();
+  // Requesting connection by POOL
+  // var query = pool.query('select version();')
+  startTime = new Date();
+  return pool.query('SELECT * from bdi_20210910_02', (err, res) => {
+
+    console.log("aeaeae", err, res)
+    endTime = new Date();
+    console.log(startTime, endTime);
+    console.log("Time: ", endTime - startTime);
+    pool.end();
+  });
+}
 
 // console.log(process.env.PGUSER);
 
@@ -50,6 +52,10 @@ pool.query('SELECT * from bdi_20210910_02', (err, res) => {
 //   username: process.env.DB_USER,
 //   password: process.env.DB_PASS
 // });
+
+appExpress.get('/database', (req, res) => {
+  res.send(getBD());
+});
 
 // GET method route
 appExpress.get('/', function (req, res) {
