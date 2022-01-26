@@ -2,9 +2,8 @@
 Primeiros testes usando python.
 
 Necessário:
-
-- Iniciar um ambiente novo de desenvolvimento python ```python -m venv env --system-site-packages```
-    
+- Python 3.10.1
+- Iniciar um ambiente novo de desenvolvimento python ```python -m venv env --system-site-packages```  
 - ```python .\Scripts\activate```
 - ```pip install pandas (pandas)```
 - ```pip install openpyxl (leitura de excel)```
